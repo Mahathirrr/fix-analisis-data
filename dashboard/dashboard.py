@@ -13,8 +13,8 @@ st.set_page_config(
 # Load data
 @st.cache_data
 def load_data():
-    hour_df = pd.read_csv('/home/neonnex/dev/dbs/project/data/hour.csv')
-    day_df = pd.read_csv('/home/neonnex/dev/dbs/project/data/day.csv')
+    hour_df = pd.read_csv('/home/neonnex/dev/dbs/fix-analisis-data2/data/hour.csv')
+    day_df = pd.read_csv('/home/neonnex/dev/dbs/fix-analisis-data2/data/day.csv')
 
     # Rename columns for better understanding
     hour_df = hour_df.rename(columns={
