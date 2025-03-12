@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import os
 
 # Set page config
 st.set_page_config(
@@ -13,8 +14,12 @@ st.set_page_config(
 # Load data
 @st.cache_data
 def load_data():
-    hour_df = pd.read_csv('/home/neonnex/dev/dbs/fix-analisis-data2/data/hour.csv')
-    day_df = pd.read_csv('/home/neonnex/dev/dbs/fix-analisis-data2/data/day.csv')
+    base_path = os.path.dirname(os.path.dirname(__file__))  # Ambil folder proyek
+    hour_path = os.path.join(base_path, "data", "hour.csv")
+    day_path = os.path.join(base_path, "data", "day.csv")
+
+    hour_df = pd.read_csv(hour_path)
+    day_df = pd.read_csv(day_path)
 
     # Rename columns for better understanding
     hour_df = hour_df.rename(columns={
